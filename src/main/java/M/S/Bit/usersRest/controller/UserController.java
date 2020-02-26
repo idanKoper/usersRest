@@ -1,6 +1,6 @@
 package M.S.Bit.usersRest.controller;
 
-import M.S.Bit.usersRest.dao.UserService;
+import M.S.Bit.usersRest.Service.UserService;
 import M.S.Bit.usersRest.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;

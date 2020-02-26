@@ -1,4 +1,4 @@
-package M.S.Bit.usersRest.dao;
+package M.S.Bit.usersRest.Service;
 
 import M.S.Bit.usersRest.model.User;
 import M.S.Bit.usersRest.repository.UserRepository;
