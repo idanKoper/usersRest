@@ -8,7 +8,7 @@ enum Gender{
     M,F,O
 }
 @Entity
-public class User {
+public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -29,10 +29,10 @@ public class User {
 
     private String password;
 
-    public User() {
+    public UserEntity() {
     }
 
-    public User(Integer id, String email, String firstName, String lastName, Gender gender, String password) {
+    public UserEntity(Integer id, String email, String firstName, String lastName, Gender gender, String password) {
         this.id = id;
         this.email = email;
         this.first_name = firstName;

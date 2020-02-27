@@ -1,7 +1,7 @@
 package M.S.Bit.usersRest.controller;
 
 import M.S.Bit.usersRest.Service.UserService;
-import M.S.Bit.usersRest.model.User;
+import M.S.Bit.usersRest.model.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
@@ -18,14 +18,14 @@ public class UserController {
     private UserService service;
 
     @GetMapping("/GetAllUsers")
-    public List<User> getAllUsers() {
+    public List<UserEntity> getAllUsers() {
         return service.listAll();
     }
 
     @GetMapping("/GetUser/{id}")
-    public ResponseEntity<User> getUser(@PathVariable Integer id) {
+    public ResponseEntity<UserEntity> getUser(@PathVariable Integer id) {
         try {
-            User user = service.get(id);
+            UserEntity user = service.get(id);
             return new ResponseEntity<>(user, HttpStatus.OK);
         } catch (NoSuchElementException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -33,7 +33,7 @@ public class UserController {
     }
 
     @PostMapping("/CreateUser")
-    public ResponseEntity<User> add(@RequestBody User user) {
+    public ResponseEntity<UserEntity> add(@RequestBody UserEntity user) {
         try {
             service.save(user);
             return new ResponseEntity<>(HttpStatus.OK);
@@ -43,9 +43,9 @@ public class UserController {
     }
 
     @PutMapping("/UpdateUser/{id}")
-    public ResponseEntity<?> update(@RequestBody User user, @PathVariable Integer id) {
+    public ResponseEntity<?> update(@RequestBody UserEntity user, @PathVariable Integer id) {
         try {
-            User existUser = service.get(id);
+            UserEntity existUser = service.get(id);
             service.save(user);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (NoSuchElementException e) {
